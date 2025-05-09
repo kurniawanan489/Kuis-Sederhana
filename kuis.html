@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Datang di Kuis</title>
+    <style>
+        .css{
+           position: absolute; 
+           top: 30%;
+           left:50%;
+           transform: translate(-50%,-50%);
+        }
+
+        h1{
+            font-size: large;
+        }
+
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(30, 66, 97);
+            background-color: rgb(16, 96, 150);
+            text-align: center;
+        }
+    </style>
+    <script>
+        function redirectToQuiz(event) {
+            event.preventDefault(); // Mencegah form dari pengiriman default
+            const name = document.getElementById('name').value;
+            const id = document.getElementById('id').value;
+
+            // Validasi input
+            if (name === '' || id === '') {
+                alert('Silakan isi semua field!');
+                return;
+            }
+
+            // Arahkan ke halaman kuis dengan parameter nama dan id
+            window.location.href = `KUISPROJECT.html?name=${encodeURIComponent(name)}&id=${encodeURIComponent(id)}`;
+        }
+    </script>
+
+</head>
+<body>
+    <img src="Screenshot_20231012_213726_WhatsApp-removebg-preview_20250424_173817_0000.png" width="auto" height="112px">
+    <h1>Form Pendaftaran</h1>
+    <form onsubmit="redirectToQuiz(event)">
+        <label for="name"></label>
+        <input type="text" id="name" name="name" required placeholder="Masukkan Nama"><br><br>
+        
+        <label for="id"></label>
+        <input type="text" id="id" name="id" required placeholder="Masukkan NIS"><br><br>
+        
+        <input type="submit" value="Mulai Kuis">
+    </form>
+</body>
+</html>
